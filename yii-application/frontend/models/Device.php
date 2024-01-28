@@ -10,7 +10,7 @@ use Yii;
  * @property int $id
  * @property string|null $name
  * @property string|null $description
- * @property int|null $serial_number
+ * @property int $serial_number
  * @property int|null $storrage
  * @property string|null $created_at
  */
@@ -31,6 +31,7 @@ class Device extends \yii\db\ActiveRecord
     {
         return [
             [['description'], 'string'],
+            [['serial_number'], 'required'],
             [['serial_number', 'storrage'], 'integer'],
             [['created_at'], 'safe'],
             [['name'], 'string', 'max' => 255],

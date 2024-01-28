@@ -21,7 +21,7 @@ class m240125_113211_device_table extends Migration
             'id' => $this->primaryKey(),
             'name' => $this->string(),
             'description' => $this->text(),
-            'serial_number' => $this->integer()->unique(),
+            'serial_number' => $this->integer()->unique()->notNull(),
             'storrage' => $this-> integer(),
             'created_at' => $this->date(),
         ], $tableOptions);

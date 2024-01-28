@@ -29,6 +29,7 @@ class Store extends \yii\db\ActiveRecord
         return [
             [['created_at'], 'safe'],
             [['name'], 'string', 'max' => 255],
+            [['name'], 'unique'],
         ];
     }
 
