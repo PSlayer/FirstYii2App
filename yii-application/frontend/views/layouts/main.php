@@ -41,8 +41,8 @@ AppAsset::register($this);
         $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup'],];
     }
     else {
-        $menuItems[] = ['label' => 'Devices', 'url' => ['/site/devices']];
-        $menuItems[] = ['label' => 'Stores', 'url' => ['/site/stores']];
+        $menuItems[] = ['label' => 'Devices', 'url' => ['/device']];
+        $menuItems[] = ['label' => 'Stores', 'url' => ['/store']];
     }
 
     echo Nav::widget([

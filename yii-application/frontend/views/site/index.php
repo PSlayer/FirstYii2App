@@ -4,6 +4,12 @@
 
 $this->title = 'My Yii Application';
 ?>
+
+<?php
+
+if (Yii::$app->user->isGuest) {
+
+?>
 <div class="site-index">
     <div class="p-5 mb-4 bg-transparent rounded-3">
         <div class="container-fluid py-5 text-center">
@@ -17,3 +23,25 @@ $this->title = 'My Yii Application';
 
     </div>
 </div>
+<?php
+}
+else{
+    ?>
+    <div class="site-index">
+        <div class="p-5 mb-4 bg-transparent rounded-3">
+            <div class="container-fluid py-5 text-center">
+                <h1 class="display-4">You are logined now!</h1>
+                <p class="fs-5 fw-light">You can use this system, may be you wanna check STORES? </p>
+                <p><a class="btn btn-lg btn-success" href="/store">Stores</a></p>
+            </div>
+        </div>
+
+        <div class="body-content">
+
+        </div>
+    </div>
+
+<?php
+
+}
+?>
