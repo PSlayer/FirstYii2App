@@ -10,11 +10,11 @@ class m240125_115954_store_table extends Migration
     /**
      * {@inheritdoc}
      */
-    public function safeUp()
+    public function up()
     {
         $tableOptions = null;
         if ($this->db->driverName === 'mysql') {
-            // https://stackoverflow.com/questions/766809/whats-the-difference-between-utf8-general-ci-and-utf8-unicode-ci
+
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
         }
         $this->createTable('store', [
@@ -22,15 +22,18 @@ class m240125_115954_store_table extends Migration
             'name' => $this->string()->unique(),
             'created_at' => $this->date(),
         ], $tableOptions);
-        $this->createIndex('store_created_at', 'store', 'created_at');
+
+        $this->createIndex('store_id', 'store', 'id');
     }
 
     /**
      * {@inheritdoc}
      */
-    public function safeDown()
+    public function down()
     {
-        $this->dropIndex('store_created_at', 'store');
+        $this->dropIndex('store_id', 'store');
+
+
         $this->dropTable('store');
     }
 

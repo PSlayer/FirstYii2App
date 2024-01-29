@@ -13,6 +13,8 @@ use Yii;
  * @property int $serial_number
  * @property int|null $storrage
  * @property string|null $created_at
+ *
+ * @property Store $storrage0
  */
 class Device extends \yii\db\ActiveRecord
 {
@@ -36,6 +38,7 @@ class Device extends \yii\db\ActiveRecord
             [['created_at'], 'safe'],
             [['name'], 'string', 'max' => 255],
             [['serial_number'], 'unique'],
+            [['storrage'], 'exist', 'skipOnError' => true, 'targetClass' => Store::class, 'targetAttribute' => ['storrage' => 'id']],
         ];
     }
 
@@ -52,5 +55,15 @@ class Device extends \yii\db\ActiveRecord
             'storrage' => 'Storrage',
             'created_at' => 'Created At',
         ];
+    }
+
+    /**
+     * Gets query for [[Storrage0]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getStorrage0()
+    {
+        return $this->hasOne(Store::class, ['id' => 'storrage']);
     }
 }

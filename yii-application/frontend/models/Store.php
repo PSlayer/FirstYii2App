@@ -10,6 +10,8 @@ use Yii;
  * @property int $id
  * @property string|null $name
  * @property string|null $created_at
+ *
+ * @property Device[] $devices
  */
 class Store extends \yii\db\ActiveRecord
 {
@@ -43,5 +45,15 @@ class Store extends \yii\db\ActiveRecord
             'name' => 'Name',
             'created_at' => 'Created At',
         ];
+    }
+
+    /**
+     * Gets query for [[Devices]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getDevices()
+    {
+        return $this->hasMany(Device::class, ['storrage' => 'id']);
     }
 }
