@@ -139,7 +139,7 @@ $('.grid-view tbody tr').on('click',function(){
 var data = $(this).data();
 $('#devices-info').modal('show');
 $('#devices-info').find('.modal-title').text('id store:' + data.key);
-$('#devices-info').find('.modal-body').load('/device?DeviceSearch[storrage]=' + data.key);
+$('#devices-info').find('.modal-body').load('/device/devicein?&DeviceSearch[storrage]=' + data.key);
 });
 ");
 ?>
