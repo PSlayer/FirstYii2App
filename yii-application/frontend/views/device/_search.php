@@ -23,7 +23,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'serial_number') ?>
 
-    <?= $form->field($model, 'storrage') ?>
+    <?= $form->field($model, 'storrage')->dropDownList(\yii\helpers\ArrayHelper::map(
+            \frontend\models\Store::find()->all(), 'id', 'name'))
+     ?>
 
     <?php // echo $form->field($model, 'created_at') ?>
 

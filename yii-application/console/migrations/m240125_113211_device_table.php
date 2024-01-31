@@ -23,7 +23,7 @@ class m240125_113211_device_table extends Migration
             'description' => $this->text(),
             'serial_number' => $this->integer()->unique()->notNull(),
             'storrage' => $this-> integer(),
-            'created_at' => $this->date(),
+            'created_at' => $this->timestamp(),
         ], $tableOptions);
 
 

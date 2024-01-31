@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use frontend\models\Store;
 
 /** @var yii\web\View $this */
 /** @var frontend\models\Device $model */
@@ -33,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             'description:ntext',
             'serial_number',
-            'storrage',
+            'storeName',
             'created_at',
         ],
     ]) ?>

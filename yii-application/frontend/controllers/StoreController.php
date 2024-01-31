@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use frontend\models\Device;
 use frontend\models\Store;
 use frontend\models\StoreSearch;
 use yii\web\Controller;

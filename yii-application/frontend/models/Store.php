@@ -3,17 +3,20 @@
 namespace frontend\models;
 
 use Yii;
+use yii\db\ActiveRecord;
+use yii\behaviors\TimestampBehavior;
+use yii\db\Expression;
 
 /**
  * This is the model class for table "store".
  *
  * @property int $id
  * @property string|null $name
- * @property string|null $created_at
+ * @property string $created_at
  *
  * @property Device[] $devices
  */
-class Store extends \yii\db\ActiveRecord
+class Store extends ActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -22,6 +25,19 @@ class Store extends \yii\db\ActiveRecord
     {
         return 'store';
     }
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::class,
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['created_at'],
+                    ActiveRecord::EVENT_BEFORE_UPDATE => ['created_at'],
+                ],
+                'value' => new Expression('NOW()'),
+            ],
+        ];
+    }
 
     /**
      * {@inheritdoc}
@@ -29,7 +45,8 @@ class Store extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['created_at'], 'safe'],
+
+           // [['created_at'], 'integer'],
             [['name'], 'string', 'max' => 255],
             [['name'], 'unique'],
         ];
@@ -56,4 +73,5 @@ class Store extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Device::class, ['storrage' => 'id']);
     }
+
 }

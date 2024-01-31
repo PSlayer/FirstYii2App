@@ -46,6 +46,12 @@ class DeviceController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
+    public function actionFindstore($id)
+    {
+        return $this->render('viewstore', [
+            'model' => $this->findStore($id),
+        ]);
+    }
 
     /**
      * Displays a single Device model.
@@ -130,5 +136,20 @@ class DeviceController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+    /**
+     * Finds the Store model based on its primary key value.
+     * If the model is not found, a 404 HTTP exception will be thrown.
+     * @param int $idS ID
+     * @return Devices the loaded model
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    protected function findStore($idS)
+    {
+        if (($models = Device::findAll(['storrage' => $idS])) !== null) {
+            return $models;
+        }
+
+        throw new NotFoundHttpException('The store not found.');
     }
 }

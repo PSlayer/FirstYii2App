@@ -20,7 +20,7 @@ class m240125_115954_store_table extends Migration
         $this->createTable('store', [
             'id' => $this->primaryKey(),
             'name' => $this->string()->unique(),
-            'created_at' => $this->date(),
+            'created_at' => $this->timestamp(),
         ], $tableOptions);
 
         $this->createIndex('store_id', 'store', 'id');

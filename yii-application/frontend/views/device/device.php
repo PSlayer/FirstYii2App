@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <h1>Serial</h1>
             <p> <?=$device->serial_number?></p>
             <h1>Storrage</h1>
-            <p> <?=$device->storrage?></p>
+            <p> <?=$device->storeName?></p>
         </div>
     </div>
 </div>

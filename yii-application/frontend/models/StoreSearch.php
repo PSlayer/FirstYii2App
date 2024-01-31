@@ -46,6 +46,12 @@ class StoreSearch extends Store
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'sort' => [
+                'attributes'=>[
+                    'name',
+                    'created_at'
+                ]
+            ]
         ]);
 
         $this->load($params);
@@ -62,7 +68,8 @@ class StoreSearch extends Store
             'created_at' => $this->created_at,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name]);
+        $query->andFilterWhere(['like', 'name', $this->name])
+        ->andFilterWhere(['like', 'created_at', $this->created_at] );
 
         return $dataProvider;
     }
