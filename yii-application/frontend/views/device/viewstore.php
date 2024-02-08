@@ -1,18 +1,10 @@
 <?php
 
-use frontend\models\Device;
-use frontend\models\Store;
-use kartik\datetime\DateTimePicker;
-
 use yii\helpers\Html;
-use yii\helpers\Url;
-use yii\grid\ActionColumn;
 use yii\widgets\ListView;
-use yii\helpers\ArrayHelper;
-use kartik\select2\Select2;
 
 /** @var yii\web\View $this */
-/** @var frontend\models\DeviceSearch $searchModel */
+/** @var \frontend\models\Device\DeviceSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
 ?>

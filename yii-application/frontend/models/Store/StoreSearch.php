@@ -1,15 +1,14 @@
 <?php
 
-namespace frontend\models;
+namespace frontend\models\Store;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use frontend\models\Device;
 
 /**
- * DeviceSearch represents the model behind the search form of `app\models\Device`.
+ * StoreSearch represents the model behind the search form of `app\models\Store`.
  */
-class DeviceSearch extends Device
+class StoreSearch extends Store
 {
     /**
      * {@inheritdoc}
@@ -17,8 +16,8 @@ class DeviceSearch extends Device
     public function rules()
     {
         return [
-            [['id', 'serial_number', ], 'integer'],
-            [['name', 'description','storrage', 'created_at'], 'safe'],
+            [['id'], 'integer'],
+            [['name', 'created_at'], 'safe'],
         ];
     }
 
@@ -40,12 +39,18 @@ class DeviceSearch extends Device
      */
     public function search($params)
     {
-        $query = Device::find();
+        $query = Store::find();
 
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'sort' => [
+                'attributes'=>[
+                    'name',
+                    'created_at'
+                ]
+            ]
         ]);
 
         $this->load($params);
@@ -59,14 +64,11 @@ class DeviceSearch extends Device
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'serial_number' => empty($this->serial_number) ? null : parse_ini_string($this->serial_number) ,
-           // 'storrage' => empty($this->storrage) ? null : $this->storrage,
-            'created_at' => empty($this->created_at) ? null : parse_ini_string($this->created_at) ,
+            'created_at' => $this->created_at,
         ]);
+
         $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'serial_number',$this->serial_number])
-            ->andFilterWhere(['like', 'storrage', $this->storrage])
-            ->andFilterWhere(['like', 'description', $this->description]);
+        ->andFilterWhere(['like', 'created_at', $this->created_at] );
 
         return $dataProvider;
     }

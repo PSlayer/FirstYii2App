@@ -2,10 +2,9 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
-use frontend\models\Store;
 
 /** @var yii\web\View $this */
-/** @var frontend\models\Device $model */
+/** @var \frontend\models\Device\Device $model */
 
 $this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => 'Devices', 'url' => ['index']];

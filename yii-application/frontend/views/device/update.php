@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 
 /** @var yii\web\View $this */
-/** @var frontend\models\Device $model */
+/** @var \frontend\models\Device\Device $model */
 
 $this->title = 'Update Device: ' . $model->name;
 $this->params['breadcrumbs'][] = ['label' => 'Devices', 'url' => ['index']];

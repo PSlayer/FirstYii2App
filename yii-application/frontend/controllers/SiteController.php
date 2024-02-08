@@ -2,19 +2,20 @@
 
 namespace frontend\controllers;
 
-use frontend\models\ResendVerificationEmailForm;
-use frontend\models\VerifyEmailForm;
+use common\models\LoginForm;
+use frontend\models\Forms\ContactForm;
+use frontend\models\Forms\PasswordResetRequestForm;
+use frontend\models\Forms\ResendVerificationEmailForm;
+use frontend\models\Forms\ResetPasswordForm;
+use frontend\models\Forms\SignupForm;
+use frontend\models\Forms\VerifyEmailForm;
 use Yii;
 use yii\base\InvalidArgumentException;
+use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
-use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
-use common\models\LoginForm;
-use frontend\models\PasswordResetRequestForm;
-use frontend\models\ResetPasswordForm;
-use frontend\models\SignupForm;
-use frontend\models\ContactForm;
+
 /**
  * Site controller
  */

@@ -2,12 +2,12 @@
 
 namespace frontend\controllers;
 
-use frontend\models\Device;
-use frontend\models\Store;
-use frontend\models\StoreSearch;
+use frontend\models\Store\Store;
+use frontend\models\Store\StoreSearch;
+use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * StoreController implements the CRUD actions for Store model.
@@ -19,17 +19,39 @@ class StoreController extends Controller
      */
     public function behaviors()
     {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
+        return [
+            'access' => [
+                'class' => AccessControl::class,
+                'denyCallback' => function () {
+                    die('Please LOGIN! If you wanna use this system, you need to logIn in this site');
+                },
+                'only' => ['index', 'devicein', 'view', 'create', 'update', 'delete', 'logout', 'signup'],
+                'rules' => [
+                    [
+                        'actions' => ['signup'],
+                        'allow' => true,
+                        'roles' => ['?'],
+                    ],
+                    [
+                        'actions' => ['index', 'devicein', 'view', 'create', 'update', 'delete'],
+                        'allow' => false,
+                        'roles' => ['?'],
+                    ],
+                    [
+                        'actions' => ['logout','index', 'devicein', 'view', 'create', 'update', 'delete'],
+                        'allow' => true,
+                        'roles' => ['@'],
                     ],
                 ],
-            ]
-        );
+            ],
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'delete' => ['POST'],
+                ],
+            ],
+
+        ];
     }
 
     /**

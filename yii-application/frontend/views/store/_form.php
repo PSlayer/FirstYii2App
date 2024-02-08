@@ -1,11 +1,11 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
 use yii\jui\DatePicker;
+use yii\widgets\ActiveForm;
 
 /** @var yii\web\View $this */
-/** @var frontend\models\Store $model */
+/** @var \frontend\models\Store\Store $model */
 /** @var yii\widgets\ActiveForm $form */
 ?>
 

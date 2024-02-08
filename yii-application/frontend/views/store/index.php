@@ -1,43 +1,22 @@
 <?php
 
-use frontend\models\Store;
-use yii\bootstrap5\Modal;
+use frontend\models\Store\Store;
 use kartik\datetime\DateTimePicker;
-use yii\helpers\Html;
-use yii\helpers\Url;
+use yii\bootstrap5\Modal;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
+use yii\helpers\Html;
+use yii\helpers\Url;
 
 /** @var yii\web\View $this */
-/** @var frontend\models\StoreSearch $searchModel */
+/** @var \frontend\models\Store\StoreSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
 $this->title = 'Stores';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<?php
 
-if (Yii::$app->user->isGuest) {
-
-    ?>
-    <div class="site-index">
-        <div class="p-5 mb-4 bg-transparent rounded-3">
-            <div class="container-fluid py-5 text-center">
-                <h1 class="display-4">Please LOGIN!</h1>
-                <p class="fs-5 fw-light">If you wanna use this system, you need to logIn in this site </p>
-                <p><a class="btn btn-lg btn-success" href="/site/login">Log In</a></p>
-            </div>
-        </div>
-
-        <div class="body-content">
-
-        </div>
-    </div>
-    <?php
-}
-else{
-?>
 <div class="store-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
@@ -116,23 +95,7 @@ else{
         </div>
     </div>
 </div>
-    <?php
 
-}
-?>
-
-<?php
-/*
-$this ->registerJs("
-$('#popupModal').click(
-    function(e) {
-    e.preventDefault();
-    $('#modal').modal('show').find('.modal-content').load($(this).attr('href'));
-    }
- );
-
-");*/
-?>
 <?php
 $this ->registerJs("
 $('.grid-view tbody tr').on('click',function(){

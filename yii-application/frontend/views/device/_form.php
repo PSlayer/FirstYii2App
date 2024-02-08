@@ -1,15 +1,13 @@
 <?php
 
-use yii\helpers\Html;
-use yii\widgets\ActiveForm;
-use yii\jui\DatePicker;
-use yii\bootstrap5\BootstrapAsset;
-use yii\helpers\ArrayHelper;
 use kartik\select2\Select2;
-use frontend\models\Device;
+use yii\helpers\ArrayHelper;
+use yii\helpers\Html;
+use yii\jui\DatePicker;
+use yii\widgets\ActiveForm;
 
 /** @var yii\web\View $this */
-/** @var frontend\models\Device $model */
+/** @var \frontend\models\Device\Device $model */
 /** @var yii\widgets\ActiveForm $form */
 ?>
 
