@@ -2,8 +2,8 @@
 
 namespace frontend\controllers;
 
-use frontend\models\Device\Device;
-use frontend\models\Device\DeviceSearch;
+use frontend\models\device\Device;
+use frontend\models\device\DeviceSearch;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
@@ -25,22 +25,17 @@ class DeviceController extends Controller
                 'denyCallback' => function () {
                     die('Please LOGIN! If you wanna use this system, you need to logIn in this site');
                 },
-                'only' => ['index', 'devicein', 'view', 'create', 'update', 'delete', 'logout', 'signup'],
+                'only' => ['index', 'devicein', 'view', 'create', 'update', 'delete'],
                 'rules' => [
                     [
-                        'actions' => ['signup'],
+                        'actions' => ['index', 'devicein', 'view', 'create', 'update', 'delete'],
                         'allow' => true,
-                        'roles' => ['?'],
+                        'roles' => ['@'],
                     ],
                     [
                         'actions' => ['index', 'devicein', 'view', 'create', 'update', 'delete'],
                         'allow' => false,
                         'roles' => ['?'],
-                    ],
-                    [
-                        'actions' => ['logout','index', 'devicein', 'view', 'create', 'update', 'delete'],
-                        'allow' => true,
-                        'roles' => ['@'],
                     ],
                 ],
             ],

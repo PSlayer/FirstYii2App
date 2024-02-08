@@ -3,12 +3,12 @@
 namespace frontend\controllers;
 
 use common\models\LoginForm;
-use frontend\models\Forms\ContactForm;
-use frontend\models\Forms\PasswordResetRequestForm;
-use frontend\models\Forms\ResendVerificationEmailForm;
-use frontend\models\Forms\ResetPasswordForm;
-use frontend\models\Forms\SignupForm;
-use frontend\models\Forms\VerifyEmailForm;
+use frontend\models\forms\ContactForm;
+use frontend\models\forms\PasswordResetRequestForm;
+use frontend\models\forms\ResendVerificationEmailForm;
+use frontend\models\forms\ResetPasswordForm;
+use frontend\models\forms\SignupForm;
+use frontend\models\forms\VerifyEmailForm;
 use Yii;
 use yii\base\InvalidArgumentException;
 use yii\filters\AccessControl;

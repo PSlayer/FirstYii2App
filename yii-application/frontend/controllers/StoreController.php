@@ -2,8 +2,8 @@
 
 namespace frontend\controllers;
 
-use frontend\models\Store\Store;
-use frontend\models\Store\StoreSearch;
+use frontend\models\store\Store;
+use frontend\models\store\StoreSearch;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
@@ -25,22 +25,17 @@ class StoreController extends Controller
                 'denyCallback' => function () {
                     die('Please LOGIN! If you wanna use this system, you need to logIn in this site');
                 },
-                'only' => ['index', 'devicein', 'view', 'create', 'update', 'delete', 'logout', 'signup'],
+                'only' => ['index', 'view', 'create', 'update', 'delete'],
                 'rules' => [
                     [
-                        'actions' => ['signup'],
-                        'allow' => true,
-                        'roles' => ['?'],
-                    ],
-                    [
-                        'actions' => ['index', 'devicein', 'view', 'create', 'update', 'delete'],
-                        'allow' => false,
-                        'roles' => ['?'],
-                    ],
-                    [
-                        'actions' => ['logout','index', 'devicein', 'view', 'create', 'update', 'delete'],
+                        'actions' => ['index', 'view', 'create', 'update', 'delete'],
                         'allow' => true,
                         'roles' => ['@'],
+                    ],
+                    [
+                        'actions' => ['index', 'view', 'create', 'update', 'delete'],
+                        'allow' => false,
+                        'roles' => ['?'],
                     ],
                 ],
             ],

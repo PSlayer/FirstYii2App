@@ -1,6 +1,6 @@
 <?php
 
-namespace frontend\models\Device;
+namespace frontend\models\device;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;

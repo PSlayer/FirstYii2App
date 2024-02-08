@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /** @var yii\web\View $this */
-/** @var \frontend\models\Device\DeviceSearch $model */
+/** @var \frontend\models\device\DeviceSearch $model */
 /** @var yii\widgets\ActiveForm $form */
 ?>
 
@@ -24,7 +24,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'serial_number') ?>
 
     <?= $form->field($model, 'storrage')->dropDownList(\yii\helpers\ArrayHelper::map(
-            \frontend\models\Store\Store::find()->all(), 'id', 'name'))
+            \frontend\models\store\Store::find()->all(), 'id', 'name'))
      ?>
 
     <?php // echo $form->field($model, 'created_at') ?>

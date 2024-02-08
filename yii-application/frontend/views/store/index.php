@@ -1,6 +1,6 @@
 <?php
 
-use frontend\models\Store\Store;
+use frontend\models\store\Store;
 use kartik\datetime\DateTimePicker;
 use yii\bootstrap5\Modal;
 use yii\grid\ActionColumn;
@@ -9,7 +9,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 
 /** @var yii\web\View $this */
-/** @var \frontend\models\Store\StoreSearch $searchModel */
+/** @var \frontend\models\store\StoreSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
 $this->title = 'Stores';

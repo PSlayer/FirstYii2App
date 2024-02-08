@@ -1,7 +1,7 @@
 <?php
 
-use frontend\models\Device\Device;
-use frontend\models\Store\Store;
+use frontend\models\device\Device;
+use frontend\models\store\Store;
 use kartik\datetime\DateTimePicker;
 use kartik\select2\Select2;
 use yii\grid\ActionColumn;
@@ -11,7 +11,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 
 /** @var yii\web\View $this */
-/** @var \frontend\models\Device\DeviceSearch $searchModel */
+/** @var \frontend\models\device\DeviceSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
 $this->title = 'Devices';

@@ -1,8 +1,8 @@
 <?php
 
-namespace frontend\models\Store;
+namespace frontend\models\store;
 
-use frontend\models\Device\Device;
+use frontend\models\device\Device;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\db\Expression;
